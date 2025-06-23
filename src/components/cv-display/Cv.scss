@@ -1,0 +1,28 @@
+.cv-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 20px;
+  width: 595px;
+  height: 842px;
+  // height: 100%;
+  background-color: white;
+  color: black;
+  .add-info {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+    .profile-pic {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  .main-info {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+}

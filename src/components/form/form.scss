@@ -1,0 +1,117 @@
+@use "../../variables.scss" as *;
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 460px;
+
+  .form-block {
+    display: flex;
+    flex-direction: column;
+    .block-title {
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 5px 20px;
+    }
+    .form-delete {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      padding: 5px 20px;
+      background-color: var(--dark-background);
+      .delete.btn {
+        width: 55px;
+        margin-left: auto;
+      }
+    }
+    .form-row {
+      display: flex;
+      gap: 25px;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      select {
+        height: 35px;
+        width: 100%;
+        margin-top: 5px;
+        padding: 5px 8px;
+      }
+      .delete.btn {
+        margin-top: auto;
+        height: 36px;
+      }
+      textarea {
+        width: 100%;
+        margin-top: 5px;
+        padding: 5px 8px;
+      }
+      input {
+        width: 100%;
+        margin-top: 5px;
+        padding: 5px 8px;
+      }
+      .half-row {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        input {
+          width: 200px;
+        }
+        .present-checkbox {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          margin-top: 5px;
+          gap: 5px;
+          input {
+            margin-top: 0px;
+            width: auto;
+          }
+        }
+      }
+      &.lang {
+        justify-content: flex-start;
+        .half-row.lang {
+          justify-content: flex-start;
+          input {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .form-row:not(:has(.half-row)) {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      gap: 5px;
+    }
+
+    .add.btn {
+      width: 55px;
+      margin-right: auto;
+    }
+    .next.btn {
+      width: 100px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      margin-left: auto;
+    }
+  }
+  .submit.btn {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+  .lang-h {
+    margin-bottom: 8px;
+  }
+}

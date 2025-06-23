@@ -1,0 +1,12 @@
+.additional-wrapper {
+  display: flex;
+  justify-content: space-between;
+  .language-block {
+    display: flex;
+    flex-direction: column;
+    .lang-info {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

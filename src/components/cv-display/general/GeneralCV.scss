@@ -1,0 +1,21 @@
+.general-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+
+  .name {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .contacts-info {
+    .contact,
+    .more-item {
+      font-size: 0.9rem;
+      padding-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}
