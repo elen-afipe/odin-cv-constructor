@@ -13,6 +13,7 @@ function PracticalFormPart({
   setPracticalInfo,
   practicalId,
   onRemove,
+  isEditable,
 }) {
   const [isStillWorking, setIsStillWorking] = useState(false);
   const currentPracticalInfo = practicalInfo[practicalId];
@@ -36,6 +37,7 @@ function PracticalFormPart({
         <div className="form-delete">
           <h3>Additional work experience</h3>
           <button
+            disabled={isEditable ? false : true}
             className="delete btn"
             onClick={() => {
               removeHandler(practicalId);
@@ -48,6 +50,7 @@ function PracticalFormPart({
       <div className="form-row">
         <label htmlFor={`company${practicalId}`}>Company</label>
         <input
+          disabled={isEditable ? false : true}
           value={currentPracticalInfo?.company}
           type="text"
           id={`company${practicalId}`}
@@ -57,6 +60,7 @@ function PracticalFormPart({
       <div className="form-row">
         <label htmlFor={`position${practicalId}`}>Position</label>
         <input
+          disabled={isEditable ? false : true}
           value={currentPracticalInfo?.position}
           type="text"
           id={`position${practicalId}`}
@@ -67,6 +71,7 @@ function PracticalFormPart({
         <div className="half-row">
           <label htmlFor={`workStart${practicalId}`}>Started working at</label>
           <input
+            disabled={isEditable ? false : true}
             value={currentPracticalInfo?.workStart}
             type="month"
             id={`workStart${practicalId}`}
@@ -76,7 +81,7 @@ function PracticalFormPart({
         <div className="half-row">
           <label htmlFor={`workEnd${practicalId}`}>Ended working at</label>
           <input
-            disabled={isStillWorking ? true : false}
+            disabled={isStillWorking || !isEditable ? true : false}
             value={
               currentPracticalInfo?.workEnd === "present"
                 ? ""
@@ -88,6 +93,7 @@ function PracticalFormPart({
           ></input>
           <div className="present-checkbox">
             <input
+              disabled={isEditable ? false : true}
               type="checkbox"
               id={`workEndPresent${practicalId}`}
               value="present"
@@ -106,7 +112,8 @@ function PracticalFormPart({
       <div className="form-row">
         <label htmlFor={`jobActions${practicalId}`}>Responsibilities</label>
         <textarea
-          placeholder="Shortly describe your activities"
+          disabled={isEditable ? false : true}
+          placeholder="Shortly describe your activities, press 'Enter' to start from a new line"
           value={currentPracticalInfo?.jobActions}
           id={`jobActions${practicalId}`}
           onChange={(e) => submitHandler(e, "jobActions", practicalId)}
@@ -135,6 +142,7 @@ export default function PracticalInfo({
     setPracticalInfo(updatedPracticalInfo);
   };
   const maxPracticalPart = 5;
+  const [isEditable, setIsEditable] = useState(true);
   return (
     <div className="form-block">
       <button className="block-title" onClick={toggleOpen}>
@@ -150,10 +158,12 @@ export default function PracticalInfo({
               setPracticalInfo={setPracticalInfo}
               practicalId={index}
               onRemove={handleRemovePracticalPart}
+              isEditable={isEditable}
             />
           ))}
           {practicalInfo.length < maxPracticalPart && (
             <button
+              disabled={isEditable ? false : true}
               className="add btn"
               onClick={() => {
                 if (practicalInfo.length < maxPracticalPart) {
@@ -174,10 +184,20 @@ export default function PracticalInfo({
               <Icon path={mdiPlus} size={1} />
             </button>
           )}
-          <button onClick={openNext} className="next btn">
-            Next
-          </button>
-          {/* <button onClick={editHandler}>Edit</button> */}
+          <div className="buttons">
+            <button className="edit btn" onClick={() => setIsEditable(true)}>
+              Edit
+            </button>
+            <button
+              onClick={() => {
+                openNext();
+                setIsEditable(false);
+              }}
+              className="next btn"
+            >
+              Next
+            </button>
+          </div>
         </>
       )}
     </div>

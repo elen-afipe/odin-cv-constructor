@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import Icon from "@mdi/react";
 import {
   mdiArrowDownDropCircleOutline,
@@ -11,7 +11,7 @@ export default function GeneralInfo({
   toggleOpen,
   openNext,
 }) {
-  // const [isClosed, setIsClosed] = useState(false);
+  const [isEditable, setIsEditable] = useState(true);
   const btnCollapseLabel = isOpen ? (
     <Icon path={mdiArrowUpDropCircleOutline} size={1} />
   ) : (
@@ -28,6 +28,7 @@ export default function GeneralInfo({
           <div className="form-row">
             <label htmlFor="avatar">Photo</label>
             <input
+              disabled={isEditable ? false : true}
               type="file"
               id="avatar"
               accept="image/*, image/jpeg"
@@ -42,6 +43,7 @@ export default function GeneralInfo({
           <div className="form-row">
             <label htmlFor="desPosition">Desired position</label>
             <input
+              disabled={isEditable ? false : true}
               type="text"
               id="desPosition"
               value={generalInfo?.position}
@@ -58,6 +60,7 @@ export default function GeneralInfo({
             <div className="half-row">
               <label htmlFor="name">Name</label>
               <input
+                disabled={isEditable ? false : true}
                 autoComplete="true"
                 value={generalInfo?.name}
                 type="text"
@@ -74,6 +77,7 @@ export default function GeneralInfo({
             <div className="half-row">
               <label htmlFor="surname">Surname</label>
               <input
+                disabled={isEditable ? false : true}
                 type="text"
                 id="surname"
                 maxLength={30}
@@ -91,6 +95,7 @@ export default function GeneralInfo({
             <div className="half-row">
               <label htmlFor="email">Email</label>
               <input
+                disabled={isEditable ? false : true}
                 type="email"
                 id="email"
                 value={generalInfo?.email}
@@ -108,6 +113,7 @@ export default function GeneralInfo({
             <div className="half-row">
               <label htmlFor="phone">Phone number</label>
               <input
+                disabled={isEditable ? false : true}
                 autoComplete="true"
                 type="tel"
                 id="phone"
@@ -127,6 +133,7 @@ export default function GeneralInfo({
             <div className="half-row">
               <label htmlFor="location">Location</label>
               <input
+                disabled={isEditable ? false : true}
                 type="text"
                 id="location"
                 value={generalInfo?.location}
@@ -142,6 +149,7 @@ export default function GeneralInfo({
             <div className="half-row">
               <label htmlFor="birthday">Birthday</label>
               <input
+                disabled={isEditable ? false : true}
                 type="date"
                 id="birthday"
                 value={generalInfo?.birthday}
@@ -154,10 +162,20 @@ export default function GeneralInfo({
               />
             </div>
           </div>
-          <button onClick={openNext} className="next btn">
-            Next
-          </button>
-          {/* <button onClick={editHandler}>Edit</button> */}
+          <div className="buttons">
+            <button className="edit btn" onClick={() => setIsEditable(true)}>
+              Edit
+            </button>
+            <button
+              onClick={() => {
+                setIsEditable();
+                openNext();
+              }}
+              className="next btn"
+            >
+              Next
+            </button>
+          </div>
         </>
       )}
     </div>

@@ -5,9 +5,15 @@ import {
   mdiArrowDownDropCircleOutline,
   mdiArrowUpDropCircleOutline,
 } from "@mdi/js";
-// import { useState } from "react";
+import { useState } from "react";
 import { Fragment } from "react";
-function AdditionalFormPart({ langsInfo, setLangsInfo, langId, onRemove }) {
+function AdditionalFormPart({
+  langsInfo,
+  setLangsInfo,
+  langId,
+  onRemove,
+  isEditable,
+}) {
   const currentLang = langsInfo[langId];
   function submitHandler(e, paramName, langId) {
     const newArray = langsInfo.map((info, index) => {
@@ -30,6 +36,7 @@ function AdditionalFormPart({ langsInfo, setLangsInfo, langId, onRemove }) {
         <div className="half-row lang">
           <label htmlFor={`lang${langId}`}>Language</label>
           <input
+            disabled={isEditable ? false : true}
             value={currentLang?.lang}
             type="text"
             id={`lang${langId}`}
@@ -40,6 +47,7 @@ function AdditionalFormPart({ langsInfo, setLangsInfo, langId, onRemove }) {
         <div className="half-row">
           <label htmlFor={`level${langId}`}>Level</label>
           <select
+            disabled={isEditable ? false : true}
             id={`level${langId}`}
             defaultValue={
               langId === 0 && currentLang.level === "fluent" ? "fluent" : ""
@@ -55,6 +63,7 @@ function AdditionalFormPart({ langsInfo, setLangsInfo, langId, onRemove }) {
         </div>
         {langId > 0 && (
           <button
+            disabled={isEditable ? false : true}
             className="delete btn"
             onClick={() => {
               removeHandler(langId);
@@ -88,6 +97,7 @@ export default function AdditionalInfo({
     setLangsInfo(updatedAdditionalInfo);
   };
   const maxLangPart = 5;
+  const [isEditable, setIsEditable] = useState(true);
   return (
     <div className="form-block">
       <button className="block-title" onClick={toggleOpen}>
@@ -99,7 +109,8 @@ export default function AdditionalInfo({
           <div className="form-row">
             <label htmlFor="skills">Skills</label>
             <textarea
-              placeholder="List your skills, separated by ','"
+              disabled={isEditable ? false : true}
+              placeholder="List your skills, press 'Enter' to start from a new line"
               value={skillsInfo}
               id="skills"
               maxLength={500}
@@ -114,10 +125,12 @@ export default function AdditionalInfo({
               setLangsInfo={setLangsInfo}
               langId={index}
               onRemove={handleRemoveLangPart}
+              isEditable={isEditable}
             />
           ))}
           {langsInfo.length < maxLangPart && (
             <button
+              disabled={isEditable ? false : true}
               className="add btn"
               onClick={() => {
                 if (langsInfo.length < maxLangPart) {
@@ -134,7 +147,20 @@ export default function AdditionalInfo({
               <Icon path={mdiPlus} size={1} />
             </button>
           )}
-          {/* <button onClick={editHandler}>Edit</button> */}
+          <div className="buttons">
+            <button className="edit btn" onClick={() => setIsEditable(true)}>
+              Edit
+            </button>
+            <button
+              onClick={() => {
+                setIsEditable(false);
+                toggleOpen();
+              }}
+              className="next btn"
+            >
+              Save
+            </button>
+          </div>
         </>
       )}
     </div>

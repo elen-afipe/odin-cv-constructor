@@ -8,7 +8,7 @@ import {
 import { useState } from "react";
 import { Fragment } from "react";
 
-function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
+function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove, isEditable }) {
   const [isStillStudying, setIsStillStudying] = useState(false);
   const currentEduInfo = eduInfo[eduId];
   function submitHandler(e, paramName, eduId) {
@@ -31,6 +31,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
         <div className="form-delete">
           <h3>Additional education</h3>
           <button
+            disabled={isEditable ? false : true}
             className="delete btn"
             onClick={() => {
               removeHandler(eduId);
@@ -43,6 +44,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
       <div className="form-row">
         <label htmlFor={`eduName${eduId}`}>Educational institution</label>
         <input
+          disabled={isEditable ? false : true}
           value={currentEduInfo?.eduName}
           type="text"
           id={`eduName${eduId}`}
@@ -53,6 +55,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
       <div className="form-row">
         <label htmlFor={`stuArea${eduId}`}>Study degree (area)</label>
         <input
+          disabled={isEditable ? false : true}
           value={currentEduInfo?.stuArea}
           type="text"
           id={`stuArea${eduId}`}
@@ -64,6 +67,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
         <div className="half-row">
           <label htmlFor={`stuStart${eduId}`}>Enrolled at</label>
           <input
+            disabled={isEditable ? false : true}
             value={currentEduInfo?.stuStart}
             type="month"
             id={`stuStart${eduId}`}
@@ -73,7 +77,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
         <div className="half-row">
           <label htmlFor={`stuEnd${eduId}`}>Graduated at</label>
           <input
-            disabled={isStillStudying ? true : false}
+            disabled={isStillStudying || !isEditable ? true : false}
             value={
               currentEduInfo?.stuEnd === "present" ? "" : currentEduInfo.stuEnd
             }
@@ -83,6 +87,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
           ></input>
           <div className="present-checkbox">
             <input
+              disabled={isEditable ? false : true}
               type="checkbox"
               id={`stuEndPresent${eduId}`}
               value="present"
@@ -100,6 +105,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
         <div className="half-row">
           <label htmlFor={`stuLocation${eduId}`}>Institution location</label>
           <input
+            disabled={isEditable ? false : true}
             value={currentEduInfo?.stuLocation}
             type="text"
             id={`stuLocation${eduId}`}
@@ -110,6 +116,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
         <div className="half-row">
           <label htmlFor={`eduAchievement${eduId}`}>Achievements</label>
           <input
+            disabled={isEditable ? false : true}
             value={currentEduInfo?.eduAchievement}
             type="text"
             id={`eduAchievement${eduId}`}
@@ -141,6 +148,7 @@ export default function EduInfo({
     setEduInfo(updatedEduInfo);
   };
   const maxEduPart = 3;
+  const [isEditable, setIsEditable] = useState(true);
   return (
     <div className="form-block">
       <button className="block-title" onClick={toggleOpen}>
@@ -156,10 +164,12 @@ export default function EduInfo({
               setEduInfo={setEduInfo}
               eduId={index}
               onRemove={handleRemoveEduPart}
+              isEditable={isEditable}
             />
           ))}
           {eduInfo.length < maxEduPart && (
             <button
+              disabled={isEditable ? false : true}
               className="add btn"
               onClick={() => {
                 if (eduInfo.length < maxEduPart) {
@@ -180,10 +190,20 @@ export default function EduInfo({
               <Icon path={mdiPlus} size={1} />
             </button>
           )}
-          <button onClick={openNext} className="next btn">
-            Next
-          </button>
-          {/* <button onClick={editHandler}>Edit</button> */}
+          <div className="buttons">
+            <button className="edit btn" onClick={() => setIsEditable(true)}>
+              Edit
+            </button>
+            <button
+              onClick={() => {
+                openNext();
+                setIsEditable(false);
+              }}
+              className="next btn"
+            >
+              Next
+            </button>
+          </div>
         </>
       )}
     </div>

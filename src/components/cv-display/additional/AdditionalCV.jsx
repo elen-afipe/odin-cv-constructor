@@ -9,7 +9,7 @@ export default function AdditionalCV({ skillsInfo, langsInfo }) {
         <h2 className="cv-block-header">Skills</h2>
         {skillsInfo && (
           <ul>
-            {skillsInfo.split(",").map((skill, index) => (
+            {skillsInfo.split("\n").map((skill, index) => (
               <li key={index}>{skill}</li>
             ))}
           </ul>

@@ -33,7 +33,7 @@ function App() {
     },
   ]);
   const [skillsInfo, setSkillsInfo] = useState(
-    "Git, JS, HTML, CSS, React, Jest"
+    "Git\nJS\nHTML\nCSS\nReact\nJest"
   );
   const [langsInfo, setLangsInfo] = useState([
     {

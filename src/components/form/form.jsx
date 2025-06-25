@@ -70,10 +70,9 @@ export default function Form({ data, handlers }) {
       setOpenSections([nextSectionName]);
     }
   };
+
   return (
     <>
-      {/* on top a panel to switch between blocks, at the bottom of block - edit and save, when save clicked move to the next block and disable inputs here */}
-      {/* {isSubmitted && <h1>Success</h1>} */}
       <div className="form-wrapper">
         <GeneralInfo
           generalInfo={data.generalInfo}
@@ -87,7 +86,7 @@ export default function Form({ data, handlers }) {
           setEduInfo={handlers.setEduInfo}
           isOpen={openSections.includes("EduInfo")}
           toggleOpen={() => toggleOpenSection("EduInfo")}
-          openNext={() => closeCurrentOpenNext("GeneralInfo", "PracticalInfo")}
+          openNext={() => closeCurrentOpenNext("EduInfo", "PracticalInfo")}
         ></EduInfo>
         <PracticalInfo
           practicalInfo={data.practicalInfo}
