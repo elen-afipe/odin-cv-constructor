@@ -12,6 +12,44 @@ import AdditionalInfo from "./additional/AdditionalInfo";
 // }
 export default function Form({ data, handlers }) {
   //   const [isSubmitted, setIsSubmitted] = useState(false);
+  function clearInputs() {
+    handlers.setGeneralInfo({
+      position: "",
+      name: "",
+      surname: "",
+      email: "",
+      phone: "",
+      location: "",
+      birthday: "",
+      imageSrc: "./src/assets/avatar-holder.svg",
+    });
+    handlers.setEduInfo([
+      {
+        eduName: "",
+        stuArea: "",
+        stuStart: "",
+        stuEnd: "",
+        stuLocation: "",
+        eduAchievement: "",
+      },
+    ]);
+    handlers.setPracticalInfo([
+      {
+        company: "",
+        position: "",
+        workStart: "",
+        workEnd: "",
+        jobActions: "",
+      },
+    ]);
+    handlers.setSkillsInfo("");
+    handlers.setLangsInfo([
+      {
+        lang: "",
+        level: "",
+      },
+    ]);
+  }
   const [openSections, setOpenSections] = useState(["GeneralInfo"]);
   const toggleOpenSection = (sectionName) => {
     setOpenSections((prev) => {
@@ -68,6 +106,9 @@ export default function Form({ data, handlers }) {
           isOpen={openSections.includes("AdditionalInfo")}
           toggleOpen={() => toggleOpenSection("AdditionalInfo")}
         ></AdditionalInfo>
+        <button className="clear btn" onClick={clearInputs}>
+          Clear all
+        </button>
         <button className="submit btn" onClick={exportToPDF}>
           <p>Download CV</p>
           <Icon path={mdiDownload} size={1} />

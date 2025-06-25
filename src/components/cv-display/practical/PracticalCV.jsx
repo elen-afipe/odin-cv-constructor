@@ -25,11 +25,13 @@ export default function PracticalCV({ practicalInfo }) {
               <div className="duties">
                 <p className="job">{info.position}</p>
                 <p className="company">{info?.company}</p>
-                <ul className="activities">
-                  {info.jobActions.split("\n").map((action, index) => (
-                    <li key={index}>{action}</li>
-                  ))}
-                </ul>
+                {info?.jobActions && (
+                  <ul className="activities">
+                    {info.jobActions.split("\n").map((action, index) => (
+                      <li key={index}>{action}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           </div>

@@ -11,7 +11,7 @@ function App() {
     phone: "+123456789",
     location: "City, country",
     birthday: "2001-01-03",
-    imageSrc: "./src/assets/react.svg",
+    imageSrc: "./src/assets/avatar-holder.svg",
   });
   const [eduInfo, setEduInfo] = useState([
     {
@@ -29,7 +29,7 @@ function App() {
       position: "CEO",
       workStart: "2024-09",
       workEnd: "2025-06",
-      jobActions: "Did all the hard stuff, slept",
+      jobActions: "Did all the hard stuff\nEventually started looking for job",
     },
   ]);
   const [skillsInfo, setSkillsInfo] = useState(

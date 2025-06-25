@@ -7,11 +7,13 @@ export default function AdditionalCV({ skillsInfo, langsInfo }) {
     <div className="additional-block">
       <div className="skills-block">
         <h2 className="cv-block-header">Skills</h2>
-        <ul>
-          {skillsInfo.split(",").map((skill, index) => (
-            <li key={index}>{skill}</li>
-          ))}
-        </ul>
+        {skillsInfo && (
+          <ul>
+            {skillsInfo.split(",").map((skill, index) => (
+              <li key={index}>{skill}</li>
+            ))}
+          </ul>
+        )}
       </div>
       <div className="language-block">
         {langsInfo.length > 0 && <h2 className="cv-block-header">Languages</h2>}
