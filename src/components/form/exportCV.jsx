@@ -5,7 +5,7 @@ export function exportToPDF() {
   const element = document.querySelector(".cv-wrapper"); // The div to export
   const pageWidth = 210; // A4 width in mm
   const pageHeight = 297; // A4 height in mm
-  const margin = 10; // margin in mm
+  const margin = 0; // margin in mm
   const pdfWidth = pageWidth - 2 * margin;
   const pdfHeight = (pdfWidth * element.offsetHeight) / element.offsetWidth;
 

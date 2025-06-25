@@ -33,6 +33,7 @@ function AdditionalFormPart({ langsInfo, setLangsInfo, langId, onRemove }) {
             value={currentLang?.lang}
             type="text"
             id={`lang${langId}`}
+            maxLength={15}
             onChange={(e) => submitHandler(e, "lang", langId)}
           ></input>
         </div>
@@ -46,10 +47,10 @@ function AdditionalFormPart({ langsInfo, setLangsInfo, langId, onRemove }) {
             onChange={(e) => submitHandler(e, "level", langId)}
           >
             <option value="" disabled style={{ display: "none" }}></option>
-            <option value="beginner">Beginner</option>
-            <option value="intermediate">Intermediate</option>
-            <option value="advanced">Advanced</option>
-            <option value="fluent">Fluent</option>
+            <option value="Basic">Basic</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Fluent">Fluent</option>
           </select>
         </div>
         {langId > 0 && (
@@ -101,6 +102,7 @@ export default function AdditionalInfo({
               placeholder="List your skills, separated by ','"
               value={skillsInfo}
               id="skills"
+              maxLength={500}
               onChange={(e) => setSkillsInfo(e.target.value)}
             ></textarea>
           </div>

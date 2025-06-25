@@ -10,26 +10,28 @@ export default function EduCV({ eduInfo }) {
         <Fragment key={index}>
           <div className="education-block">
             {index === 0 && <h2 className="cv-block-header">Education</h2>}
-            <p className="degree">
-              {info.stuArea}
-              {info.stuLocation ? ", " : null}
-              {info?.stuLocation}
-            </p>
-            <p className="institution">
-              {info.eduName} {info.stuStart && " | "}
-              <span className="edu-period">
+            <div className="education-content">
+              <div className="duty-period">
                 {info.stuStart &&
                   info.stuStart !== "" &&
-                  format(info.stuStart, "dd.MM.yyyy")}
+                  format(info.stuStart, "MM.yyyy")}
                 {info.stuEnd && " - "}
                 {info.stuEnd &&
                   info.stuEnd !== "" &&
                   (info.stuEnd === "present"
                     ? info.stuEnd
-                    : format(info.stuEnd, "dd.MM.yyyy"))}
-              </span>
-            </p>
-            <p className="achievements">{info.eduAchievement}</p>
+                    : format(info.stuEnd, "MM.yyyy"))}
+              </div>
+              <div className="duties">
+                <p className="degree">
+                  {info.stuArea}
+                  {info.stuLocation ? ", " : null}
+                  {info?.stuLocation}
+                </p>
+                <p className="institution">{info.eduName}</p>
+                <p className="achievements">{info.eduAchievement}</p>
+              </div>
+            </div>
           </div>
         </Fragment>
       ))}

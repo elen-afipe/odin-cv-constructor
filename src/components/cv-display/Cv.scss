@@ -1,28 +1,66 @@
 .cv-wrapper {
+  line-height: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
-  padding: 15px 20px;
+  padding: 30px 25px;
   width: 595px;
   height: 842px;
-  // height: 100%;
   background-color: white;
   color: black;
-  .add-info {
+  .education-block,
+  .work-block,
+  .skills-block,
+  .language-block {
     display: flex;
     flex-direction: column;
-    width: 30%;
-
-    .profile-pic {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 50%;
+    width: 100%;
+    p {
+      margin-bottom: 8px;
     }
-  }
-  .main-info {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
+    .cv-block-header {
+      font-weight: 500;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      color: var(--blue);
+      border-bottom: 1.5px solid var(--dark-background);
+    }
+    .education-content,
+    .work-content {
+      display: flex;
+      .duty-period {
+        margin-right: 20px;
+        font-weight: 400;
+        font-size: 1.1rem;
+        width: 126px;
+      }
+    }
+    .education-content {
+      .degree {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      .achievements {
+        font-size: 0.8rem;
+      }
+    }
+    .work-content {
+      .job {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      .activities {
+        font-size: 0.9rem;
+        padding-left: 15px;
+        li {
+          margin-bottom: 8px;
+        }
+        li::marker {
+          color: var(--blue);
+        }
+      }
+    }
   }
 }

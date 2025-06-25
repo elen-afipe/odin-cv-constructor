@@ -46,6 +46,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
           value={currentEduInfo?.eduName}
           type="text"
           id={`eduName${eduId}`}
+          maxLength={80}
           onChange={(e) => submitHandler(e, "eduName", eduId)}
         ></input>
       </div>
@@ -55,6 +56,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
           value={currentEduInfo?.stuArea}
           type="text"
           id={`stuArea${eduId}`}
+          maxLength={80}
           onChange={(e) => submitHandler(e, "stuArea", eduId)}
         ></input>
       </div>
@@ -63,7 +65,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
           <label htmlFor={`stuStart${eduId}`}>Enrolled at</label>
           <input
             value={currentEduInfo?.stuStart}
-            type="date"
+            type="month"
             id={`stuStart${eduId}`}
             onChange={(e) => submitHandler(e, "stuStart", eduId)}
           ></input>
@@ -75,7 +77,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
             value={
               currentEduInfo?.stuEnd === "present" ? "" : currentEduInfo.stuEnd
             }
-            type="date"
+            type="month"
             id={`stuEnd${eduId}`}
             onChange={(e) => submitHandler(e, "stuEnd", eduId)}
           ></input>
@@ -101,6 +103,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
             value={currentEduInfo?.stuLocation}
             type="text"
             id={`stuLocation${eduId}`}
+            maxLength={50}
             onChange={(e) => submitHandler(e, "stuLocation", eduId)}
           ></input>
         </div>
@@ -110,6 +113,7 @@ function EduFormPart({ eduInfo, setEduInfo, eduId, onRemove }) {
             value={currentEduInfo?.eduAchievement}
             type="text"
             id={`eduAchievement${eduId}`}
+            maxLength={70}
             onChange={(e) => submitHandler(e, "eduAchievement", eduId)}
           ></input>
         </div>

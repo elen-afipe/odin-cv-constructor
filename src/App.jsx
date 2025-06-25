@@ -10,15 +10,15 @@ function App() {
     email: "my_mail@mail.com",
     phone: "+123456789",
     location: "City, country",
-    birthday: "2021-01-03",
+    birthday: "2001-01-03",
     imageSrc: "./src/assets/react.svg",
   });
   const [eduInfo, setEduInfo] = useState([
     {
       eduName: "The Odin Project",
       stuArea: "Full Stack Javascript",
-      stuStart: "2024-09-01",
-      stuEnd: "2025-06-23",
+      stuStart: "2024-09",
+      stuEnd: "2025-06",
       stuLocation: "Online",
       eduAchievement: "Made it through JS",
     },
@@ -27,8 +27,8 @@ function App() {
     {
       company: "My own startup",
       position: "CEO",
-      workStart: "2024-09-01",
-      workEnd: "2025-06-23",
+      workStart: "2024-09",
+      workEnd: "2025-06",
       jobActions: "Did all the hard stuff, slept",
     },
   ]);
@@ -38,7 +38,7 @@ function App() {
   const [langsInfo, setLangsInfo] = useState([
     {
       lang: "English",
-      level: "fluent",
+      level: "Fluent",
     },
   ]);
   return (

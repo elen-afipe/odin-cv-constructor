@@ -4,7 +4,7 @@ import "./AdditionalCV.scss";
 // import { mdiPhone, mdiEmail, mdiMapMarker, mdiCalendar } from "@mdi/js";
 export default function AdditionalCV({ skillsInfo, langsInfo }) {
   return (
-    <div className="additional-wrapper">
+    <div className="additional-block">
       <div className="skills-block">
         <h2 className="cv-block-header">Skills</h2>
         <ul>
@@ -18,8 +18,8 @@ export default function AdditionalCV({ skillsInfo, langsInfo }) {
         {langsInfo.map((info, index) => (
           <Fragment key={index}>
             <div className="lang-info">
-              <p>{info?.lang}</p>
-              <p>{info?.level}</p>
+              <p className="lang">{info?.lang}</p>
+              <p className="lang-level">{info?.level}</p>
             </div>
           </Fragment>
         ))}

@@ -68,7 +68,7 @@ function PracticalFormPart({
           <label htmlFor={`workStart${practicalId}`}>Started working at</label>
           <input
             value={currentPracticalInfo?.workStart}
-            type="date"
+            type="month"
             id={`workStart${practicalId}`}
             onChange={(e) => submitHandler(e, "workStart", practicalId)}
           ></input>
@@ -82,7 +82,7 @@ function PracticalFormPart({
                 ? ""
                 : currentPracticalInfo.workEnd
             }
-            type="date"
+            type="month"
             id={`workEnd${practicalId}`}
             onChange={(e) => submitHandler(e, "workEnd", practicalId)}
           ></input>

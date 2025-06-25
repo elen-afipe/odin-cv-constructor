@@ -1,9 +1,23 @@
-.additional-wrapper {
+.additional-block {
   display: flex;
+  width: 100%;
   justify-content: space-between;
+  gap: 40px;
+  .skills-block {
+    ul {
+      padding-left: 15px;
+      li {
+        margin-bottom: 8px;
+      }
+      li::marker {
+        color: var(--blue);
+      }
+    }
+  }
   .language-block {
     display: flex;
     flex-direction: column;
+    max-width: 215px;
     .lang-info {
       display: flex;
       justify-content: space-between;

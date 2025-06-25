@@ -45,6 +45,7 @@ export default function GeneralInfo({
               type="text"
               id="desPosition"
               value={generalInfo?.position}
+              maxLength={100}
               onChange={(e) =>
                 submitHandler({
                   ...generalInfo,
@@ -61,6 +62,7 @@ export default function GeneralInfo({
                 value={generalInfo?.name}
                 type="text"
                 id="name"
+                maxLength={30}
                 onChange={(e) =>
                   submitHandler({
                     ...generalInfo,
@@ -74,6 +76,7 @@ export default function GeneralInfo({
               <input
                 type="text"
                 id="surname"
+                maxLength={30}
                 value={generalInfo?.surname}
                 onChange={(e) =>
                   submitHandler({
@@ -92,6 +95,8 @@ export default function GeneralInfo({
                 id="email"
                 value={generalInfo?.email}
                 autoComplete="true"
+                minLength={6}
+                maxLength={30}
                 onChange={(e) =>
                   submitHandler({
                     ...generalInfo,
@@ -107,6 +112,8 @@ export default function GeneralInfo({
                 type="tel"
                 id="phone"
                 value={generalInfo?.phone}
+                minLength={8}
+                maxLength={15}
                 onChange={(e) =>
                   submitHandler({
                     ...generalInfo,
@@ -123,6 +130,7 @@ export default function GeneralInfo({
                 type="text"
                 id="location"
                 value={generalInfo?.location}
+                maxLength={25}
                 onChange={(e) =>
                   submitHandler({
                     ...generalInfo,
