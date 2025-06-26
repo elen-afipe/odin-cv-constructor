@@ -1,4 +1,4 @@
-import "./cv.scss";
+import "./Cv.scss";
 import GeneralCV from "./general/GeneralCV";
 import EduCV from "./edu/EduCV";
 import PracticalCV from "./practical/PracticalCV";
