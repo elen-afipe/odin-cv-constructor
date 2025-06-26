@@ -9,6 +9,7 @@
   height: 842px;
   background-color: white;
   color: black;
+  box-shadow: none;
   .education-block,
   .work-block,
   .skills-block,
@@ -25,7 +26,7 @@
       margin-bottom: 10px;
       margin-top: 10px;
       color: var(--blue);
-      border-bottom: 1.5px solid var(--dark-background);
+      border-bottom: 1.5px solid #1a1a1a;
     }
     .education-content,
     .work-content {
@@ -62,5 +63,10 @@
         }
       }
     }
+  }
+}
+@media (prefers-color-scheme: light) {
+  .cv-wrapper {
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.1);
   }
 }

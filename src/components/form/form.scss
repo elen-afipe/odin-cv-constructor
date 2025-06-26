@@ -8,12 +8,13 @@
   .form-block {
     display: flex;
     flex-direction: column;
+    background-color: var(--middle-dark);
     .block-title {
       font-size: 1.1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: #1a1a1a;
+      background-color: var(--dark);
       border-radius: 8px;
       margin-bottom: 20px;
       padding: 5px 20px;
@@ -25,7 +26,7 @@
       margin-top: 15px;
       margin-bottom: 10px;
       padding: 5px 20px;
-      background-color: var(--dark-background);
+      background-color: var(--dark);
       .delete.btn {
         width: 55px;
         margin-left: auto;
@@ -132,3 +133,9 @@
     margin-bottom: 8px;
   }
 }
+
+// @media (prefers-color-scheme: light) {
+//   input {
+//     background-color: var(--middle-dark);
+//   }
+// }

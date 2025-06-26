@@ -1,4 +1,11 @@
 :root {
-  --dark-background: #1a1a1a;
+  --dark: #1a1a1a;
+  --dark-background: #242424;
   --blue: rgb(14, 14, 83);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --dark: #f9f9f9;
+    --dark-background: #ffffff;
+  }
 }

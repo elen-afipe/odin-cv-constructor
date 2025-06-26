@@ -1,13 +1,4 @@
-// #root {
-//   // max-width: 1280px;
-//   margin: 0 auto;
-//   padding: 2rem;
-//   text-align: center;
-//   display: flex;
-//   align-items: center;
-//   gap: 15px;
-// }
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   #root {
     flex-direction: column;
     align-items: center;

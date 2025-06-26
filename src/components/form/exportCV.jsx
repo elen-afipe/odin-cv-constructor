@@ -3,27 +3,26 @@ import html2canvas from "html2canvas";
 
 export function exportToPDF() {
   const element = document.querySelector(".cv-wrapper"); // The div to export
-  const pageWidth = 210; // A4 width in mm
-  const pageHeight = 297; // A4 height in mm
-  const margin = 0; // margin in mm
+  const pageWidth = 210;
+  const pageHeight = 297;
+  const margin = 0;
   const pdfWidth = pageWidth - 2 * margin;
   const pdfHeight = (pdfWidth * element.offsetHeight) / element.offsetWidth;
 
   html2canvas(element, {
-    scale: 4, // Higher scale for better quality
+    scale: 2,
     useCORS: true,
+    scrollX: 0,
+    scrollY: -window.scrollY,
     logging: false,
     allowTaint: true,
   }).then((canvas) => {
     const imgData = canvas.toDataURL("image/jpeg", 1.0);
 
-    // Portrait orientation
     const pdf = new jsPDF("p", "mm", "a4");
 
-    // Add image to PDF
     pdf.addImage(imgData, "JPEG", margin, margin, pdfWidth, pdfHeight);
 
-    // If content overflows a page
     if (pdfHeight > pageHeight - 2 * margin) {
       let remainingHeight = pdfHeight;
       let position = 0;

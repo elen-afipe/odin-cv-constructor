@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import "./PracticalCV.scss";
 import { format } from "date-fns";
 export default function PracticalCV({ practicalInfo }) {
   return (

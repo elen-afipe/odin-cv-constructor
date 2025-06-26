@@ -1,7 +1,5 @@
 import { Fragment } from "react";
 import "./AdditionalCV.scss";
-// import Icon from "@mdi/react";
-// import { mdiPhone, mdiEmail, mdiMapMarker, mdiCalendar } from "@mdi/js";
 export default function AdditionalCV({ skillsInfo, langsInfo }) {
   return (
     <div className="additional-block">

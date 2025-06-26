@@ -1,8 +1,5 @@
 import { Fragment } from "react";
-import "./EduCV.scss";
 import { format } from "date-fns";
-import Icon from "@mdi/react";
-// import { mdiPhone, mdiEmail, mdiMapMarker, mdiCalendar } from "@mdi/js";
 export default function EduCV({ eduInfo }) {
   return (
     <>
